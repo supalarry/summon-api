@@ -1,0 +1,9 @@
+{
+  "name": "summon-api",
+  "version": "1.0.0",
+  "main": "source/server.ts",
+  "repository": "https://github.com/supalarry/summon-api",
+  "author": "Larry <lauris.skraucis@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
