@@ -7,8 +7,8 @@
     "license": "MIT",
     "private": true,
     "scripts": {
-        "dev": "nodemon source/server.ts",
-        "build": "rm -rf build && prettier --write source/ && tsc"
+        "deploy-dev": "serverless -s dev",
+        "deploy-prod": "serverless -s prod"
     },
     "devDependencies": {
         "@types/aws-lambda": "^8.10.83",
