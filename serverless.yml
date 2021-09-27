@@ -1,3 +1,5 @@
+org: supalarry
+app: summon-api
 service: summon-api
 
 provider:
