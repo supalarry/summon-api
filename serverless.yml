@@ -25,6 +25,7 @@ functions:
 # Serverless plugins
 plugins:
     - serverless-plugin-typescript
+    - serverless-offline
 
 # Resources your functions use
 resources:
