@@ -45,6 +45,9 @@ jobs:
             - uses: actions/setup-node@v1
               with:
                   node-version: ^14.15.0
+            - name: yarn install
+            run: |
+                yarn install
             - name: yarn deploy-dev
               env:
                   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
