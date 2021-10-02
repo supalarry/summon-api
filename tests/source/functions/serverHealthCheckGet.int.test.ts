@@ -17,6 +17,6 @@ describe('serverHealthCheckGet', () => {
         expect(res).toBeDefined();
         expect(isApiGatewayResponse(res)).toBe(true);
         expect(res.statusCode).toBe(200);
-        expect(res.body).toBe('Pong');
+        expect(res.body).toBe('Pong pong');
     });
 });
