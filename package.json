@@ -13,6 +13,7 @@
         "deploy-prod": "serverless -s prod"
     },
     "devDependencies": {
+        "@knapsack-pro/jest": "^5.2.0",
         "@types/aws-lambda": "^8.10.83",
         "@types/jest": "^27.0.2",
         "@types/serverless": "^1.78.35",
