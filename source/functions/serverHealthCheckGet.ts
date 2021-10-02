@@ -1,16 +1,12 @@
 import { APIGatewayProxyHandler, APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
+import { buildResponse } from '../helpers/build-response';
 
 export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+    let response;
     try {
-        const response = {
-            statusCode: 200,
-            body: 'Pong'
-        };
-        return response;
+        response = buildResponse(200, 'Pong');
     } catch (err) {
-        return {
-            statusCode: 500,
-            body: 'An error occured'
-        };
+        response = buildResponse(500, 'An error occured');
     }
+    return response;
 };
