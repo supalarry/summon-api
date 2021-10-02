@@ -6,11 +6,14 @@ import { APIGatewayProxyResult } from '../../../node_modules/@types/aws-lambda/t
 
 describe('serverHealthCheckGet', () => {
     it('should return pong', async () => {
+        // setup
         const event = APIGatewayRequestMockGenerator({
             httpMethod: 'GET',
             body: null
         });
+        // execute
         const res = (await handler(event, {} as Context, (() => {}) as Callback)) as APIGatewayProxyResult;
+        // evaluate
         expect(res).toBeDefined();
         expect(isApiGatewayResponse(res)).toBe(true);
         expect(res.statusCode).toBe(200);
