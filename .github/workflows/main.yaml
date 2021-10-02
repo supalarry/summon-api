@@ -7,9 +7,8 @@ on:
             - main
 
 jobs:
-    build:
+    test:
         runs-on: ubuntu-latest
-
         strategy:
             fail-fast: false
             matrix:
@@ -21,15 +20,12 @@ jobs:
                 # set N-1 indexes for parallel jobs
                 # When you run 2 parallel jobs then first job will have index 0, the second job will have index 1 etc
                 ci_node_index: [0, 3]
-
         steps:
             - uses: actions/checkout@v1
-
             - name: Use Node.js ${{ matrix.node-version }}
               uses: actions/setup-node@v1
               with:
                   node-version: ${{ matrix.node-version }}
-
             - name: yarn install
               run: |
                   yarn install
@@ -41,3 +37,18 @@ jobs:
                   KNAPSACK_PRO_CI_NODE_INDEX: ${{ matrix.ci_node_index }}
               run: |
                   $(yarn bin)/knapsack-pro-jest
+    deploy:
+        needs: test
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v1
+            - uses: actions/setup-node@v1
+                with:
+                    node-version: ^14.15.0
+            - name: yarn deploy-dev
+              env:
+                AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+              run: |
+                yarn deploy-dev
+
