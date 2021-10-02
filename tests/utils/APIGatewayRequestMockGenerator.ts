@@ -8,7 +8,7 @@ const APIGatewayRequestMockGenerator = ({
     pathParametersObject = null,
     stageVariables = null
 }: {
-    body: string | null;
+    body: Object | null;
     httpMethod: string;
     path?: string;
     queryStringObject?: APIGatewayProxyEventQueryStringParameters | null;
