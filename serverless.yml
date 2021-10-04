@@ -8,7 +8,7 @@ provider:
 
 # functions
 functions:
-    verifySlackApp:
+    slackEvents:
         handler: source/functions/slack/events.handler
         events: # The events that trigger this function
             - http:
