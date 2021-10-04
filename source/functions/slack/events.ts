@@ -6,7 +6,11 @@ export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEven
     try {
         const eventBody = event.body;
         const parsedBody = await JSON.parse(eventBody || '');
-        response = buildResponse(200, `${parsedBody.challenge}`);
+        if (parsedBody.type === 'url_verification') {
+            response = buildResponse(200, `${parsedBody.challenge}`);
+        } else {
+            response = buildResponse(404, 'Invalid request');
+        }
     } catch (err) {
         response = buildResponse(500, 'An error occured');
     }

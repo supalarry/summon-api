@@ -9,10 +9,10 @@ provider:
 # functions
 functions:
     verifySlackApp:
-        handler: source/functions/slack/verify-app.handler
+        handler: source/functions/slack/events.handler
         events: # The events that trigger this function
             - http:
-                  path: api/verifications/slack
+                  path: api/slack/events
                   method: post
     serverHealthCheckGet:
         handler: source/functions/utils/server-health-check/serverHealthCheckGet.handler
