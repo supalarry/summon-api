@@ -9,13 +9,13 @@ provider:
 # functions
 functions:
     serverHealthCheckGet:
-        handler: source/functions/serverHealthCheckGet.handler
+        handler: source/functions/utils/server-health-check/serverHealthCheckGet.handler
         events: # The events that trigger this function
             - http:
                   path: api/ping
                   method: get
     serverHealthCheckPost:
-        handler: source/functions/serverHealthCheckPost.handler
+        handler: source/functions/utils/server-health-check/serverHealthCheckPost.handler
         events: # The events that trigger this function
             - http:
                   path: api/ping

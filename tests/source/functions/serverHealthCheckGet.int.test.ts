@@ -1,4 +1,4 @@
-import { handler } from '../../../source/functions/serverHealthCheckGet';
+import { handler } from '../../../source/functions/utils/server-health-check/serverHealthCheckGet';
 import APIGatewayRequestMockGenerator from '../../utils/APIGatewayRequestMockGenerator';
 import { isApiGatewayResponse } from '../../utils/validators';
 import { Context, Callback } from 'aws-lambda';
