@@ -31,6 +31,7 @@ functions:
 plugins:
     - serverless-plugin-typescript
     - serverless-offline
+    - serverless-dotenv-plugin
 
 # Resources your functions use
 resources:
