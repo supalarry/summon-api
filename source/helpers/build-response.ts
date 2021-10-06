@@ -1,4 +1,8 @@
-const buildResponse = (statusCode: number, body: string, headers?: { [header: string]: boolean | number | string }) => {
+// TODO allow body to be object
+const buildResponse = (statusCode: number, body: string | object, headers?: { [header: string]: boolean | number | string }) => {
+    if (typeof body !== 'string') {
+        body = JSON.stringify(body);
+    }
     if (!headers) {
         headers = {
             'Content-Type': 'application/json',

@@ -1,6 +1,6 @@
-import { handler } from '../../../source/functions/utils/server-health-check/serverHealthCheckPost';
-import APIGatewayRequestMockGenerator from '../../utils/APIGatewayRequestMockGenerator';
-import { isApiGatewayResponse } from '../../utils/validators';
+import { handler } from '../../../../../source/functions/utils/server-health-check/serverHealthCheckPost';
+import APIGatewayRequestMockGenerator from '../../../../utils/APIGatewayRequestMockGenerator';
+import { isApiGatewayResponse } from '../../../../utils/validators';
 import { Context, Callback } from 'aws-lambda';
 import { APIGatewayProxyResult } from 'aws-lambda/trigger/api-gateway-proxy';
 

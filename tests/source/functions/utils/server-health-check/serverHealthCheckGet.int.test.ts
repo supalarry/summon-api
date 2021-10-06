@@ -1,8 +1,8 @@
-import { handler } from '../../../source/functions/utils/server-health-check/serverHealthCheckGet';
-import APIGatewayRequestMockGenerator from '../../utils/APIGatewayRequestMockGenerator';
-import { isApiGatewayResponse } from '../../utils/validators';
+import { handler } from '../../../../../source/functions/utils/server-health-check/serverHealthCheckGet';
+import APIGatewayRequestMockGenerator from '../../../../utils/APIGatewayRequestMockGenerator';
+import { isApiGatewayResponse } from '../../../../utils/validators';
 import { Context, Callback } from 'aws-lambda';
-import { APIGatewayProxyResult } from '../../../node_modules/@types/aws-lambda/trigger/api-gateway-proxy';
+import { APIGatewayProxyResult } from 'aws-lambda/trigger/api-gateway-proxy';
 
 describe('serverHealthCheckGet', () => {
     it('should return pong', async () => {
