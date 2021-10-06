@@ -11,13 +11,13 @@ export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEven
             if (parsedBody.type === 'url_verification') {
                 response = buildResponse(200, `${parsedBody.challenge}`);
             } else {
-                response = buildResponse(404, 'Invalid request');
+                response = buildResponse(404, { message: 'Invalid request' });
             }
         } else {
-            response = buildResponse(401, 'Unauthorized');
+            response = buildResponse(401, { message: 'Unauthorized' });
         }
     } catch (err) {
-        response = buildResponse(500, 'An error occured');
+        response = buildResponse(500, { message: 'An error occured' });
     }
     return response;
 };

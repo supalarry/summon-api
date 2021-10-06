@@ -36,7 +36,7 @@ describe('events', () => {
         expect(res).toBeDefined();
         expect(isApiGatewayResponse(res)).toBe(true);
         expect(res.statusCode).toBe(401);
-        expect(res.body).toBe('Unauthorized');
+        expect(res.body).toBe('{"message":"Unauthorized"}');
     });
 
     it('should return 401 given missing url_verification header', async () => {
@@ -49,7 +49,7 @@ describe('events', () => {
         expect(res).toBeDefined();
         expect(isApiGatewayResponse(res)).toBe(true);
         expect(res.statusCode).toBe(401);
-        expect(res.body).toBe('Unauthorized');
+        expect(res.body).toBe('{"message":"Unauthorized"}');
     });
 
     afterAll(() => {
