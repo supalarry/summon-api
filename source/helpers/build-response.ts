@@ -1,4 +1,3 @@
-// TODO allow body to be object
 const defaultHeaders = {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Methods': '*',
