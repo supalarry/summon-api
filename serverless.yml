@@ -11,7 +11,7 @@ provider:
 # functions
 functions:
     slackEvents:
-        handler: source/functions/slack/events.handler
+        handler: source/functions/slack/eventsRoute.handler
         events: # The events that trigger this function
             - http:
                   path: api/slack/events
