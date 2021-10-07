@@ -34,7 +34,7 @@ export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEven
         }
     } catch (err) {
         response = buildResponse(500, { message: 'An error occured' });
-        Logger.error(NAMESPACE, 'An error occured: ', err.message);
+        Logger.error(NAMESPACE, 'An error occured: ', (err as any)?.message);
     }
     return response;
 };
