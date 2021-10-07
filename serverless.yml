@@ -6,7 +6,7 @@ provider:
     runtime: nodejs12.x
     region: eu-central-1
     environment:
-        SLACK_SIGNING_SECRET: process.env.SLACK_SIGNING_SECRET
+        SLACK_SIGNING_SECRET: ${process.env.SLACK_SIGNING_SECRET}
 
 # functions
 functions:
@@ -32,7 +32,7 @@ functions:
 custom:
     datadog:
         addExtension: true
-        apiKey: process.env.DATADOG_API_KEY
+        apiKey: ${process.env.DATADOG_API_KEY}
 
 # Serverless plugins
 plugins:
