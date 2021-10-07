@@ -11,10 +11,12 @@ export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEven
             const eventBody = event.body;
             const parsedBody = await JSON.parse(eventBody || '');
             // This is special way how Slack verifies the app
+            console.log('body', parsedBody);
             if (parsedBody.type === 'url_verification') {
                 response = buildResponse(200, `${parsedBody.challenge}`);
             } else if (parsedBody.type === 'event_callback') {
                 // Call controller processing actual event
+                console.log('call processRequest');
                 processRequest(parsedBody.body);
                 response = buildResponse(200, { message: 'OK' });
             } else {
