@@ -1,4 +1,4 @@
-import { handler } from '../../../../source/functions/slack/events';
+import { handler } from '../../../../source/functions/slack/eventsRoute';
 import { isApiGatewayResponse } from '../../../utils/validators';
 import { Context, Callback } from 'aws-lambda';
 import { APIGatewayProxyResult } from 'aws-lambda/trigger/api-gateway-proxy';
