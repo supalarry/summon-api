@@ -29,11 +29,17 @@ functions:
                   path: api/ping
                   method: post
 
+custom:
+    datadog:
+        addExtension: true
+        apiKey: process.env.DATADOG_API_KEY
+
 # Serverless plugins
 plugins:
     - serverless-plugin-typescript
     - serverless-offline
     - serverless-dotenv-plugin
+    - serverless-plugin-datadog
 
 # Resources your functions use
 resources:

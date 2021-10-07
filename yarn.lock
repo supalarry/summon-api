@@ -6235,6 +6235,13 @@ serverless-offline@^8.2.0:
     velocityjs "^2.0.3"
     ws "^7.4.2"
 
+serverless-plugin-datadog@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/serverless-plugin-datadog/-/serverless-plugin-datadog-3.0.1.tgz#f459f8c2b7a686f4e6de389c075b8a03019d1063"
+  integrity sha512-WZ8Q6Yh0G0HKHX6EKYweitMjVDSupEYobZfcCZml6wi5M2Futx5WS9LtAVgNZhH61mihGrnBye4kqUa9CZHNYg==
+  dependencies:
+    node-fetch "^2.6.1"
+
 serverless-plugin-typescript@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/serverless-plugin-typescript/-/serverless-plugin-typescript-2.1.0.tgz#467148e097140a4f134be5922f46a2148bd3f87d"
