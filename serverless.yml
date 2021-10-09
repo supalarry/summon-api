@@ -42,7 +42,7 @@ custom:
     ssm: ${ssm:/aws/reference/secretsmanager/summon/${opt:stage}/envs}
     datadog:
         addExtension: true
-        apiKey: ${ssm:/aws/reference/secretsmanager/summon/${opt:stage}/envs}.DD_API_KEY
+        apiKey: ${ssm:/aws/reference/secretsmanager/summon/${opt:stage}/envs:DD_API_KEY}
 
 # Serverless plugins
 plugins:
