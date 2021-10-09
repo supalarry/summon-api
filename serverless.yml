@@ -6,17 +6,18 @@ provider:
     name: aws
     runtime: nodejs12.x
     region: eu-central-1
-
-# functions
-functions:
-    slackEvents:
-        handler: source/functions/slack/eventsRoute.handler
-        environment: ${self:custom.ssm, file(./environments/${self:custom.stage}.env.json)}
+    environment:
+        ${self:custom.ssm, file(./environments/${self:custom.stage}.env.json)}
         # ${self:custom.ssm} allows to fetch envrionment variables for staging and production environments.
         # If we are in development environment, then ${self:custom.stage} is false, and environment is loaded from file.
         # ${self:custom.stage} allows us to know what stage we are in to load correct file
         # it accesses custom: block of this file and then its stage value. Based on stage
         # necessary filename is formulated and loaded as environment.
+
+# functions
+functions:
+    slackEvents:
+        handler: source/functions/slack/eventsRoute.handler
         events: # The events that trigger this function
             - http:
                   path: api/slack/events
@@ -42,8 +43,7 @@ custom:
     ssm: ${ssm:/aws/reference/secretsmanager/summon/${opt:stage}/envs}
     datadog:
         addExtension: true
-        environment: ${ssm:/aws/reference/secretsmanager/summon/${opt:stage}/envs}
-        apiKey: ${self.custom.datadog.environment.DD_API_KEY}
+        apiKey: ${self.provider.environment.DD_API_KEY}
 
 # Serverless plugins
 plugins:
