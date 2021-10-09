@@ -10,7 +10,9 @@ provider:
 functions:
     slackEvents:
         handler: source/functions/slack/eventsRoute.handler
-        environment: ${file(./environments/${self:custom.stage}.env.json)}
+        environment: ${self:custom.ssm, file(./environments/${self:custom.stage}.env.json)}
+        # ${self:custom.ssm} allows to fetch envrionment variables for staging and production environments.
+        # If we are in development environment, then ${self:custom.stage} is false, and environment is loaded from file.
         # ${self:custom.stage} allows us to know what stage we are in to load correct file
         # it accesses custom: block of this file and then its stage value. Based on stage
         # necessary filename is formulated and loaded as environment.
@@ -35,9 +37,11 @@ custom:
     # stage tells if we are in dev, prod or other stage. It is based on -s flag value
     # when deploying serverless. For example, serverless deploy -s dev would make stage: dev
     stage: ${opt:stage}
+    # ssm is used to retrieve secrets for staging and production envrionments
+    ssm: ${ssm:/aws/reference/secretsmanager/summon/${opt:stage}/envs~true}
     datadog:
         addExtension: true
-        apiKey: ffs
+        apiKey: ${ssm:/aws/reference/secretsmanager/summon/${opt:stage}/envs~true}.DD_API_KEY
 
 # Serverless plugins
 plugins:
