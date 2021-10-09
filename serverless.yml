@@ -1,5 +1,6 @@
 app: summon-api
 service: summon-api
+variablesResolutionMode: 20210326
 
 provider:
     name: aws
@@ -38,10 +39,10 @@ custom:
     # when deploying serverless. For example, serverless deploy -s dev would make stage: dev
     stage: ${opt:stage}
     # ssm is used to retrieve secrets for staging and production envrionments
-    ssm: ${ssm:/aws/reference/secretsmanager/summon/${opt:stage}/envs~true}
+    ssm: ${ssm:/aws/reference/secretsmanager/summon/${opt:stage}/envs}
     datadog:
         addExtension: true
-        apiKey: ${ssm:/aws/reference/secretsmanager/summon/${opt:stage}/envs~true}.DD_API_KEY
+        apiKey: ${ssm:/aws/reference/secretsmanager/summon/${opt:stage}/envs}.DD_API_KEY
 
 # Serverless plugins
 plugins:
