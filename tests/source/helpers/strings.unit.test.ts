@@ -1,14 +1,14 @@
-import makeObjectKeysValuesLowerCase from '../../../source/helpers/strings';
+import makeObjectKeysLowerCase from '../../../source/helpers/strings';
 
-describe('makeObjectKeysValuesLowerCase', () => {
+describe('makeObjectKeysLowerCase', () => {
     it('should make object keys and values lower case', () => {
         const startingObject = {
             nAme: 'LarRy',
             sURNAmE: 'BaLLer'
         };
-        expect(makeObjectKeysValuesLowerCase(startingObject)).toEqual({
-            name: 'larry',
-            surname: 'baller'
+        expect(makeObjectKeysLowerCase(startingObject)).toEqual({
+            name: 'LarRy',
+            surname: 'BaLLer'
         });
     });
 });

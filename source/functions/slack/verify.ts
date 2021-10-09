@@ -1,6 +1,6 @@
 import crypto from 'crypto';
 import { APIGatewayProxyEvent } from 'aws-lambda';
-import makeObjectKeysValuesLowerCase from '../../helpers/strings';
+import makeObjectKeysLowerCase from '../../helpers/strings';
 
 const NAMESPACE = 'verify';
 
@@ -15,7 +15,7 @@ function verifySlackEvent(slackEvent: APIGatewayProxyEvent, signingSecret = `${p
     if (!slackEvent || !slackEvent.body || !slackEvent.headers) {
         return false;
     }
-    const headers = makeObjectKeysValuesLowerCase(slackEvent.headers);
+    const headers = makeObjectKeysLowerCase(slackEvent.headers);
     if (!headers[SLACK_TIMESTAMP_HEADER_LOWERCASE] || !headers[SLACK_SIGNATURE_HEADER_LOWERCASE]) {
         return false;
     }
