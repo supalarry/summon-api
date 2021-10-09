@@ -30,6 +30,7 @@ functions:
 custom:
     datadog:
         addExtension: true
+        apiKey: ${env:DD_API_KEY}
 
 # Serverless plugins
 plugins:
