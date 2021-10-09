@@ -10,7 +10,7 @@ const NAMESPACE = 'eventsRoute';
 export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEvent, context: Context, callback: Callback): Promise<APIGatewayProxyResult> => {
     let response;
     try {
-        Logger.info(NAMESPACE, 'Event received');
+        Logger.debugNestedObject(NAMESPACE, 'Event received:', event);
         if (verifySlackEvent(event)) {
             Logger.info(NAMESPACE, 'Event successfully verified as Slack event');
             const eventBody = event.body;
@@ -22,7 +22,7 @@ export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEven
             } else if (parsedBody.type === 'event_callback') {
                 Logger.info(NAMESPACE, 'Event is of type: event_callback');
                 // Call controller processing actual event
-                processRequest(parsedBody.body);
+                processRequest(parsedBody);
                 response = buildResponse(200, { message: 'OK' });
             } else {
                 response = buildResponse(404, { message: 'Invalid request' });
