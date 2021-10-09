@@ -8,9 +8,9 @@
     "private": true,
     "scripts": {
         "test": "jest",
-        "dev": "sls offline -s dev",
-        "deploy-dev": "serverless deploy -s dev",
-        "deploy-prod": "serverless deploy -s prod"
+        "development": "sls offline -s development",
+        "deploy-staging": "serverless deploy -s staging",
+        "deploy-production": "serverless deploy -s production"
     },
     "devDependencies": {
         "@knapsack-pro/jest": "^5.2.0",

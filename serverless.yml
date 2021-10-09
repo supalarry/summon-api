@@ -10,6 +10,8 @@ provider:
 functions:
     slackEvents:
         handler: source/functions/slack/eventsRoute.handler
+        # self:custom.stage allows us to know what stage we are in to load correct file
+        # environment: ${file(./${self:custom.stage}.env.json)}
         events: # The events that trigger this function
             - http:
                   path: api/slack/events
@@ -28,6 +30,9 @@ functions:
                   method: post
 
 custom:
+    # stage tells if we are in dev, prod or other stage. It is based on -s flag value
+    # when deploying serverless. For example, serverless deploy -s dev would make stage: dev
+    stage: ${opt:stage}
     datadog:
         addExtension: true
         apiKey: ffs
