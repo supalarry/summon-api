@@ -10,8 +10,10 @@ provider:
 functions:
     slackEvents:
         handler: source/functions/slack/eventsRoute.handler
-        # self:custom.stage allows us to know what stage we are in to load correct file
-        # environment: ${file(./${self:custom.stage}.env.json)}
+        environment: ${file(./environments/${self:custom.stage}.env.json)}
+        # ${self:custom.stage} allows us to know what stage we are in to load correct file
+        # it accesses custom: block of this file and then its stage value. Based on stage
+        # necessary filename is formulated and loaded as environment.
         events: # The events that trigger this function
             - http:
                   path: api/slack/events
