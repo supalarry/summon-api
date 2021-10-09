@@ -41,7 +41,6 @@ custom:
 plugins:
     - serverless-plugin-typescript
     - serverless-offline
-    - serverless-dotenv-plugin
     - serverless-plugin-datadog
 
 # Resources your functions use
