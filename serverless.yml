@@ -41,15 +41,11 @@ custom:
     stage: ${opt:stage}
     # ssm is used to retrieve secrets for staging and production envrionments
     ssm: ${ssm:/aws/reference/secretsmanager/summon/${opt:stage}/envs}
-    datadog:
-        addExtension: true
-        apiKey: ${self:provider.environment.DD_API_KEY}
 
 # Serverless plugins
 plugins:
     - serverless-plugin-typescript
     - serverless-offline
-    - serverless-plugin-datadog
 
 # Resources your functions use
 resources:

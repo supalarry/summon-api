@@ -24,7 +24,6 @@
         "prettier": "^2.4.1",
         "serverless": "^2.60.0",
         "serverless-offline": "^8.2.0",
-        "serverless-plugin-datadog": "^3.0.1",
         "serverless-plugin-typescript": "^2.1.0",
         "ts-jest": "^27.0.5",
         "ts-node": "^10.2.1",
