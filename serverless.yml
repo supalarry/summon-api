@@ -12,7 +12,7 @@ provider:
         # If we are in development environment, then ${self:custom.stage} is false, and environment is loaded from file.
         # ${self:custom.stage} allows us to know what stage we are in to load correct file
         # it accesses custom: block of this file and then its stage value. Based on stage
-        # necessary filename is formulated and loaded as environment.
+        # necessary filename is formulated and loaded as environment
 
 # functions
 functions:
