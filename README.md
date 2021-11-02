@@ -19,7 +19,7 @@ Run `yarn dev` to launch lambdas offline.
 
 # Debug locally
 
-For debugging use VS Code editor. Within `.vscode` folder is defined `launch.jso`n file which is debugging configuration. From VS Code Launch the debugger after placing a break point at whatever place you want.
+For debugging use VS Code editor. Within `.vscode` folder is defined `launch.json` file which is debugging configuration. From VS Code Launch the debugger after placing a break point at whatever place you want.
 
 The debugging URL is `http://localhost:4000/dev/` . So if within `serverless.yml` a function has path of `api/ping` , then to trigger debugging endpoint call `http://localhost:4000/dev/api/ping` , and code will stop at wherever you placed break point.
 
