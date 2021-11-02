@@ -1,6 +1,8 @@
 # summon-api
 
-Summon API is used for communication with the Slack API and in future with frontend.
+Summon is a work in progress to become a Slack plugin. It's purpose is to make asking for help and providing help at a workplace frictionless.
+
+This repository is an API used for communication with the Slack API and in future with frontend.
 
 # Overview
 1. Written in node.js + typescript
